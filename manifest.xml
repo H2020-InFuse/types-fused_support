@@ -3,13 +3,15 @@
         This package provides conversion functions, operations, etc. for
         the types defined in types/sensor_samples.
     </description>
-    <author>GMV Aerospace & Defence S.A.U.</author>
+    <author>GMV Aerospace & Defence S.A.U., DFKI GmbH</author>
     <copyright>GMV 2018</copyright>
     <license>GPLv2</license>
 
     <depend package="base/cmake"/>
     <depend package="base/types"/>
     <depend package="types/base"/>
+    <depend package="types/sensor_samples"/>
+    <depend package="types/fused"/>
     <depend package="types/base_support"/>
     <depend package="eigen3"/>
 </package>

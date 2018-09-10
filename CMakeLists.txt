@@ -6,7 +6,7 @@
 cmake_minimum_required(VERSION 3.3)
 # required version 3.3: provides "IN_LIST" operator in if()
 
-project(sensor_samples_support)
+project(fused_support)
 
 include($ENV{ESROCOS_CMAKE})
 

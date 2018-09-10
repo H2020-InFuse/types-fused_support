@@ -2,34 +2,22 @@
 # Company: GMV Aerospace & Defence S.A.U.
 # Licence: GPLv2
 
+add_definitions(-std=c++11)
+
 set(LIB ${CMAKE_PROJECT_NAME})
 
 set(SOURCES
-    asn1DepthMapConvert.cpp
-    #asn1FrameConvert.cpp
-    asn1IMUSensorsConvert.cpp
-    asn1LaserScanConvert.cpp
-    asn1PointcloudConvert.cpp
-    #asn1SonarBeamConvert.cpp
-    #asn1SonarBeamUtils.c
+    asn1MapConvert.cpp
     )
     
 set(HEADERS
-    asn1DepthMapConvert.hpp
-    #asn1FrameConvert.hpp
-    asn1IMUSensorsConvert.hpp
-    asn1LaserScanConvert.hpp
-    asn1PointcloudConvert.hpp
-    #asn1SonarBeamConvert.hpp
-    #asn1SonarBeamUtils.h
-    sensorSamplesTypes.h
-    sensorSamplesUtils.h
+    asn1MapConvert.hpp
     )
 
 # ASN.1 types are imported and compiled locally to the project, but not installed
 esrocos_asn1_types_package(${LIB}_local_types
     OUTDIR asn1
-    IMPORT types/base types/sensor_samples)
+    IMPORT types/base types/sensor_samples types/fused)
     
 # Find libraries in ESROCOS' install directory
 link_directories(${CMAKE_INSTALL_PREFIX}/lib)
@@ -40,6 +28,7 @@ set_target_properties(${LIB} PROPERTIES LINKER_LANGUAGE CXX)
 esrocos_pkgconfig_dependency(${LIB}
     eigen3
     base_support
+    maps
 )
 target_include_directories(${LIB} PUBLIC 
    PRIVATE ${CMAKE_BINARY_DIR}
